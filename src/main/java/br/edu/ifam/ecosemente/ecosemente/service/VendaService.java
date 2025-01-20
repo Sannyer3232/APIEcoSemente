@@ -80,6 +80,7 @@ public class VendaService {
         try {
             Venda vendaExistente = vendaRepository.findById(id)
                     .orElseThrow(() -> new RuntimeException("Venda não encontrada com ID: " + id));
+
             Venda vendaUpadate = vendaInputDTO.build(compradorRepository, sementeRepository);
 
 
@@ -93,6 +94,7 @@ public class VendaService {
 
 
             vendaExistente.getItens().clear();
+
             for (ItemVenda itemVenda : vendaUpadate.getItens()) {
                 Semente semente = sementeRepository.findById(itemVenda.getSemente().getId())
                         .orElseThrow(() -> new RuntimeException("Semente não encontrada: " + itemVenda.getSemente().getId()));

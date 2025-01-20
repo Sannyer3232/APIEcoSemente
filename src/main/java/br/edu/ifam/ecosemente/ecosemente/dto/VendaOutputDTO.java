@@ -23,6 +23,7 @@ public class VendaOutputDTO {
         this.id = venda.getId();
         this.dataVenda = venda.getDataVenda();
         this.comprador = venda.getComprador().getNome();
+
         List<ItemVendaOutputDTO> itens = new ArrayList<>();
 
         for (ItemVenda itemVenda : venda.getItens()) {

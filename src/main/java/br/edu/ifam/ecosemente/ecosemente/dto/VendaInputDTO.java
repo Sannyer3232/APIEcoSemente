@@ -63,6 +63,7 @@ public class VendaInputDTO {
         }
 
         venda.setItens(itens);
+
         float valorTotal = 0;
 
         for(ItemVenda itemVenda : itens){
