@@ -14,15 +14,19 @@ public class ItemVenda {
     private int quantidade;
     @Column(nullable = false)
     private float precoItem;
+    @JoinColumn(nullable = false)
+    @ManyToOne
+    private Venda venda;
 
     public ItemVenda() {
     }
 
-    public ItemVenda(long id, Semente semente, int quantidade, float precoItem) {
+    public ItemVenda(long id, Semente semente, int quantidade, float precoItem, Venda venda) {
         this.id = id;
         this.semente = semente;
         this.quantidade = quantidade;
         this.precoItem = precoItem;
+        this.venda = venda;
     }
 
     public long getId() {
@@ -55,5 +59,13 @@ public class ItemVenda {
 
     public void setPrecoItem(float precoItem) {
         this.precoItem = precoItem;
+    }
+
+    public Venda getVenda() {
+        return venda;
+    }
+
+    public void setVenda(Venda venda) {
+        this.venda = venda;
     }
 }

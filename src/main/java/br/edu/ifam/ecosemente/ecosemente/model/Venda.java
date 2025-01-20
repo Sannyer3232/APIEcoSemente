@@ -16,8 +16,8 @@ public class Venda {
     @ManyToOne
     @JoinColumn(nullable = false)
     private Comprador comprador;
-    @OneToMany
-    @JoinColumn(nullable = false)
+
+    @OneToMany(mappedBy = "venda", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ItemVenda> itens;
     @Column(nullable = false)
     private float valorTotal;
@@ -71,5 +71,11 @@ public class Venda {
 
     public void setValorTotal(float valorTotal) {
         this.valorTotal = valorTotal;
+    }
+
+    public void addVenda() {
+        for (ItemVenda itemVenda : itens) {
+            itemVenda.setVenda(this);
+        }
     }
 }
