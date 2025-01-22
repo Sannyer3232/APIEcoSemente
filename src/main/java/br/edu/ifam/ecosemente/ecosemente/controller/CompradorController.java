@@ -22,7 +22,7 @@ import java.net.URI;
 import java.util.List;
 
 @RestController
-@RequestMapping("/comprador")
+@RequestMapping("/api/comprador")
 @Tag(name="Comprador", description = "APIs para gerenciamento de comprador")
 public class CompradorController {
 
