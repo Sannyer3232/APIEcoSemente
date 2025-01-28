@@ -14,6 +14,7 @@ public class VendaOutputDTO {
     private long id;
     private LocalDate dataVenda;
     private String comprador;
+    private String cpfCnpjComprador;
     private List<ItemVendaOutputDTO> itens;
     private float valorTotal;
 
@@ -23,6 +24,7 @@ public class VendaOutputDTO {
         this.id = venda.getId();
         this.dataVenda = venda.getDataVenda();
         this.comprador = venda.getComprador().getNome();
+        this.cpfCnpjComprador = venda.getComprador().getCpfCnpj();
 
         List<ItemVendaOutputDTO> itens = new ArrayList<>();
 
@@ -71,5 +73,13 @@ public class VendaOutputDTO {
 
     public void setValorTotal(float valorTotal) {
         this.valorTotal = valorTotal;
+    }
+
+    public String getCpfCnpjComprador() {
+        return cpfCnpjComprador;
+    }
+
+    public void setCpfCnpjComprador(String cpfCnpjComprador) {
+        this.cpfCnpjComprador = cpfCnpjComprador;
     }
 }
